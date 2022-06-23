@@ -376,9 +376,9 @@ class Program:
         try:
             time.sleep(1)
             if comp == 1:
-                self.all_lines_Molex(FV, self.name_FV(FV))
+                self.all_lines_Company1(FV, self.name_FV(FV))
             if comp == 2:
-                self.all_lines_Guardian(FV, self.name_FV(FV))
+                self.all_lines_Company2(FV, self.name_FV(FV))
         except:
             pass
 
