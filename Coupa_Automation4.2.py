@@ -53,8 +53,8 @@ class Program:
         # self.direct = direct
 
     def get_site(self, choise):
-        url1 = "https://molex.coupahost.com/invoices"
-        url2 = "https://guardian.coupahost.com/invoices"
+        url1 = "https://YOUR.coupahost.com/invoices"
+        url2 = "https://YOUR.coupahost.com/invoices"
 
         if choise == 1:
             self.driver.get(url1)
@@ -123,7 +123,7 @@ class Program:
         
         return nr
 
-    def all_lines_Molex(self, nr, name):
+    def all_lines_Company1(self, nr, name):
         try:
             invoice_clickable = WebDriverWait(self.driver, 4).until(lambda driver: self.driver.find_elements_by_class_name("dt_open_link"))
         except:
@@ -237,7 +237,7 @@ class Program:
             no_invoice.append(nr)
     
 
-    def all_lines_Guardian(self, nr, name):
+    def all_lines_Company2(self, nr, name):
         try:
             invoice_clickable = WebDriverWait(self.driver, 4).until(lambda driver: self.driver.find_elements_by_class_name("dt_open_link"))
         except:
@@ -475,9 +475,9 @@ class App(tk.Tk):
             while i <= y:
                 latest_FV = lista[i]
                 print(latest_FV)
-                if mode == "Molex":
+                if mode == "Company1":
                     work.final(latest_FV, 1)
-                if mode == "Guardian":
+                if mode == "Company2":
                     work.final(latest_FV, 2)
                 i+=1                
             missing_documents, missing_attachments, doubles, errors = work.get_missing()
