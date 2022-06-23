@@ -440,7 +440,7 @@ class App(tk.Tk):
         search_button.grid(column=1, row=3, sticky=tk.NSEW, padx=5, pady=5)
 
         global mode_on_button  
-        mode_on_button = ttk.Combobox(self,values=['Molex', 'Guardian'])
+        mode_on_button = ttk.Combobox(self,values=['Company1', 'Company2'])
         mode_on_button.grid(column=1, row=4, sticky=tk.NSEW, padx=10, pady=10)
         mode_on_button.current(1)
 
