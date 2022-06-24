@@ -2,16 +2,13 @@ from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 import os
 import time
-# from selenium.webdriver.chrome.options import Options
 import getpass
 import tkinter as tk
 from tkinter import ttk
 from tkinter import messagebox
-# from tkinter.ttk import Style
 import pandas as pd
 from tkinter import filedialog
 import os
-# import sys
 
 
 messagebox.showwarning("Closing Chrome", "Your Chrome app is going to be closed automatically after you click 'ok'")
@@ -21,7 +18,6 @@ try:
 except:
     pass
 
-# print(os.system("chrome.exe"))
 
 def resource_path(relative_path: str) -> str:
 
@@ -30,7 +26,6 @@ def resource_path(relative_path: str) -> str:
     return os.path.join(base_path, relative_path)
 
 user_name = getpass.getuser()
-# directory = f"C:\\Users\\{user_name}\\OneDrive - kochind.com\\Desktop\\Coupa"
 no_invoice = []
 no_attachment = []
 doubles = []
@@ -42,15 +37,12 @@ class Program:
     def __init__(self, direct):
         self.direct = direct
         self.webdriver = webdriver
-        # self.directory = directory
         options = webdriver.ChromeOptions()
         options.add_argument(f"--user-data-dir=C:\\Users\\{user_name}\\AppData\\Local\\Google\\Chrome\\User Data")
-        # p = {"download.default_directory": "C:\\Users\\%s\\OneDrive - kochind.com\\Desktop\\Coupa\\"%user_name}        #  #, "safebrowsing.enabled":"true"
         self.direct = self.direct.replace(r"/", "\\")
         p = {"download.default_directory": str(self.direct)}
         options.add_experimental_option("prefs", p)
-        self.driver = self.webdriver.Chrome(executable_path=resource_path(CHROME_DRIVER_PATH),chrome_options=options) #executable_path= "C:\\Users\\szymob\\OneDrive - kochind.com\\Desktop\Project_Coupa\\chromedriver.exe",
-        # self.direct = direct
+        self.driver = self.webdriver.Chrome(executable_path=resource_path(CHROME_DRIVER_PATH),chrome_options=options)
 
     def get_site(self, choise):
         url1 = "https://YOUR.coupahost.com/invoices"
@@ -392,7 +384,6 @@ class Program:
         time.sleep(4)
         self.driver.quit()
         self.webdriver = webdriver
-        # self.directory = directory
         options = webdriver.ChromeOptions()
         options.add_argument(f"--user-data-dir=C:\\Users\\{user_name}\\AppData\\Local\\Google\\Chrome\\User Data")
         p = {"download.default_directory": "C:\\Users\\%s\\Downloads\\"%user_name} #, "safebrowsing.enabled":"true"
@@ -412,10 +403,6 @@ class App(tk.Tk):
         self.geometry("300x150")
         self.title('Coupa Automation')
         self.resizable(False,False)
-        # self.configure(background='black')
-        # p1 = tk.PhotoImage(file='koch.jpg')
-        # self.iconphoto(False, p1)
-        # Style.theme_use(self, 'winnative')
         self.columnconfigure(0, weight=1)
         self.columnconfigure(1, weight=3)
         self.columnconfigure(2, weight=3)
